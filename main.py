@@ -28,10 +28,10 @@ def seq(min, max, k):
 def get_dens(x, mean=0, sd=1):
     density = (1 / (sd * math.sqrt(2 * math.pi))) * (math.e ** (-0.5 * ((x - mean) / sd) ** 2)) # density calculation function i don't understand because integrated calculus is hard
     return density
-def normal_dist(vec, mean=0, sd=1, int=False):
+def normal_dist(vec, mean=0, sd=1, integer=False):
     dens_vec = []
     for i in range(len(vec)):
-        if not int:
+        if not integer:
             dens_vec += [get_dens(vec[i], mean=mean, sd=sd)]
         else:
             dens_vec += [round(get_dens(vec[i], mean=mean, sd=sd))]
