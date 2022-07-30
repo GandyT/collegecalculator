@@ -21,9 +21,9 @@ SD_SAT = 195
 def seq(min, max, k):
     vec = []
     c = min
-    while c <= max:
+    while c < max:
         c += k
-        vec.append(c) # round to two decimals
+        vec.append(c)
     return vec
 def get_dens(x, mean=0, sd=1):
     density = (1 / (sd * math.sqrt(2 * math.pi))) * (math.e ** (-0.5 * ((x - mean) / sd) ** 2)) # density calculation function i don't understand because integrated calculus is hard
@@ -60,7 +60,7 @@ def calc_percentile(gpa=85, sat_score=1060, ecs=4):
     sat_pdf = normal_dist(sat_x, mean=MEAN_SAT, sd=SD_SAT)
     sat_perc = percentile(sat_x, sat_pdf, sat_score)
 
-    ecs_x = [round(item) for item in seq(1, 10, 1)]
+    ecs_x = seq(1, 10, 1)
     ecs_pdf = normal_dist(ecs_x, mean=MEAN_EC, sd=SD_EC)
     ecs_perc = percentile(ecs_x, ecs_pdf, ecs)
     # take weighted mean
